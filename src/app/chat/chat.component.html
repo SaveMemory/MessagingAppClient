@@ -1,0 +1,14 @@
+<label for="username">Username: </label>
+<input id="username" type="text" [formControl]="username">
+
+<label for="message">Message: </label>
+<input id="message" type="text" [formControl]="messageControl">
+
+<button (click)="sendMessage()">Send message</button>
+
+<div *ngFor="let chatMessage of (chatMessages$ | async)">
+
+    <div>Sender: {{chatMessage.Sender}}</div>
+    <div>Content: {{chatMessage.Content}}</div>
+    <br>
+</div>
