@@ -41,7 +41,9 @@ export class ChatComponent implements OnInit {
       return
     }
 
-    this.http.post<Message>('https://localhost:7150/api/message', new Message(this.messageForm.controls['username'].value, this.messageForm.controls['messageControl'].value))
+    this.http.post<Message>('https://localhost:7150/api/message', 
+      new Message(this.messageForm.controls['username'].value, 
+      this.messageForm.controls['messageControl'].value))
       .subscribe();
   }
 

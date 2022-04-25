@@ -1,23 +1,38 @@
-<form [formGroup]="messageForm">
+<div class="chat-container">
 
-    <label for="username">Username: </label>
-    <input id="username" type="text" formControlName="username">
-
-    <label for="message">Message: </label>
-    <input id="message" type="text" formControlName="messageControl">
-
-    <ng-container *ngIf="!this.messageForm.valid">
-        <h3>
-            Invalid form.
-        </h3>
-    </ng-container>
-</form>
-
-<button (click)="sendMessage()">Send message</button>
-
-<ng-container *ngFor="let chatMessage of (chatMessages$ | async)">
-
-    <div>Sender: {{chatMessage.Sender}}</div>
-    <div>Content: {{chatMessage.Content}}</div>
-    <br>
-</ng-container>
+    <form [formGroup]="messageForm">
+        <div class="message-data">
+            <div class="username">
+                <label for="username">Username: </label>
+                <input id="username" type="text" formControlName="username">
+            </div>
+    
+            <div class="message">
+                <label for="message">Message: </label>
+                <textarea id="message" type="text" formControlName="messageControl">
+                </textarea>
+            </div>
+            
+        
+            <ng-container *ngIf="!this.messageForm.valid">
+                <h4 class="error-message">
+                    Invalid form.
+                </h4>
+            </ng-container>
+        </div>
+    </form>
+    
+    <button id="submit-button" (click)="sendMessage()">Send message</button>
+    
+    <div class="chat">
+        <ng-container *ngFor="let chatMessage of (chatMessages$ | async)">
+            <div class="single-message">
+                <div class="sender">
+                    Sender: {{chatMessage.Sender}}
+                </div>
+                <div>Content: {{chatMessage.Content}}</div>
+                <br>
+            </div>
+        </ng-container>
+    </div>
+</div>
