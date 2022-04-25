@@ -1,14 +1,23 @@
-<label for="username">Username: </label>
-<input id="username" type="text" [formControl]="username">
+<form [formGroup]="messageForm">
 
-<label for="message">Message: </label>
-<input id="message" type="text" [formControl]="messageControl">
+    <label for="username">Username: </label>
+    <input id="username" type="text" formControlName="username">
+
+    <label for="message">Message: </label>
+    <input id="message" type="text" formControlName="messageControl">
+
+    <ng-container *ngIf="!this.messageForm.valid">
+        <h3>
+            Invalid form.
+        </h3>
+    </ng-container>
+</form>
 
 <button (click)="sendMessage()">Send message</button>
 
-<div *ngFor="let chatMessage of (chatMessages$ | async)">
+<ng-container *ngFor="let chatMessage of (chatMessages$ | async)">
 
     <div>Sender: {{chatMessage.Sender}}</div>
     <div>Content: {{chatMessage.Content}}</div>
     <br>
-</div>
+</ng-container>

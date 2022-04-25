@@ -27,7 +27,6 @@ export class SignalRService {
 
   public addTransferMessageDataListener = () => {
     this.hubConnection.on('transferMessage', (sender: string, content: string) => {
-      console.log(content);
       this.onMessageReceived.emit(new Message(sender, content));
     })
   }
