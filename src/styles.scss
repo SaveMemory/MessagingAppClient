@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Exo 2', sans-serif;
 }
 
 body {
-    background-image: url("../crack.jpg");
+    background-color: #5CDB95;
+    textarea:focus, input:focus{
+        outline: none;
+    }
 }

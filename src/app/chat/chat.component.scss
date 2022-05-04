@@ -1,10 +1,9 @@
 .chat-container {
-    background-color: rgba(223, 223, 223, .6);
-    width: 100%;
-    height: 100vh;
+    background-color: #e09f9f;
+
+    min-height: 100%;
 
     .chat {
-        background-color: rgb(103, 103, 109);
         width: 30%;
         border-radius: 2%;
         display: flex;
@@ -14,7 +13,7 @@
         
         .single-message {
             border: solid black 1px;
-            margin: 1em;
+            margin-bottom: 1em;
             width: 40%;
 
             .sender {
@@ -28,7 +27,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin: 2em;
     
         .username {
             width: 20%;
@@ -36,38 +34,79 @@
             padding: 1em;
         }
     
-        #username {
+        .message-form-field {
             border: none;
             background-color: #f1f1f1;
-            border-radius: 3%;
+            color: #379683;
+            font-weight: 600;
         }
-    
-        .message {
+
+        .form-field {
             width: 20%;
             margin: auto;
-        }
-    
-        #message {
-            border: none;
-            background-color: #f1f1f1;
-            border-radius: 3%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 15%;
         }
     
         .error-message {
             color: rgb(209, 56, 56);
             margin: auto;
         }
+
+        label {
+            color: #05386B;
+            font-weight: 600;
+        }
     }
     
-    #submit-button {
-        background-color: rgb(102, 102, 189);
-        color: aliceblue;
-        border-radius: 5%;
-        height: 3em;
-        box-shadow: 2px 2px 1px #888888;
+    #submit-center {
+        background-color: #05386B;
+        color: #edf5e1;
+        height: 3rem;
+        width: 10em;
+        float: left;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s background-color;
+        transition-delay: 0.08s;
+    }
+
+    .rit-right {
+        float: left;
+        width: 0;
+        height: 0;
+        border-top: 3em solid #05386B;
+        border-right: 1em solid transparent;
+        transition: 0.7s border-top;
+        transition-delay: 0.1s;
+    }
+
+    .rit-left {
+        float: left;
+        width: 0;
+        height: 0;
+        border-bottom: 3em solid #05386B;
+        border-left: 1em solid transparent;
+        transition: 0.3s border-bottom;
+        transition-delay: 0.05s;
     }
     
-    #submit-button:hover {
+    .submit-button:hover .rit-left {
         cursor: pointer;
+        border-bottom: 3em solid #8ee4af;
+    }
+
+    .submit-button:hover .rit-right {
+        cursor: pointer;
+        border-top: 3em solid #8ee4af;
+    }
+
+    .submit-button:hover #submit-center {
+        cursor: pointer;
+        background-color: #8ee4af;
     }
 }

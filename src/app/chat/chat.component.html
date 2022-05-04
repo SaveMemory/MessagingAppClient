@@ -2,14 +2,14 @@
 
     <form [formGroup]="messageForm">
         <div class="message-data">
-            <div class="username">
+            <div class="form-field">
                 <label for="username">Username: </label>
-                <input id="username" type="text" formControlName="username">
+                <input class="message-form-field" type="text" formControlName="username">
             </div>
     
-            <div class="message">
+            <div class="form-field">
                 <label for="message">Message: </label>
-                <textarea id="message" type="text" formControlName="messageControl">
+                <textarea class="message-form-field" type="text" formControlName="messageControl">
                 </textarea>
             </div>
             
@@ -21,9 +21,13 @@
             </ng-container>
         </div>
     </form>
-    
-    <button id="submit-button" (click)="sendMessage()">Send message</button>
-    
+
+    <div class="submit-button" (click)="sendMessage()">
+        <div class="rit-left"></div>
+        <div id="submit-center" >Send message</div>
+        <div class="rit-right"></div>
+    </div>
+
     <div class="chat">
         <ng-container *ngFor="let chatMessage of (chatMessages$ | async)">
             <div class="single-message">
